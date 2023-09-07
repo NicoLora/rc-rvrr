@@ -16,6 +16,11 @@ radio.onReceivedNumber(function on_recieved_number(receivedNumber: number) {
         sphero.setRawMotors(sphero.RawMotorModes.forward, 100, sphero.RawMotorModes.forward, 100)
     }
     
+    if (receivedNumber == 3) {
+        basic.showIcon(IconNames.Giraffe)
+        sphero.wake()
+    }
+    
 })
 //     sphero.set_raw_motors(sphero.RawMotorModes.FORWARD, 100, sphero.RawMotorModes.FORWARD, 100)
 input.onButtonPressed(Button.A, function on_button_pressed_a() {
