@@ -3,17 +3,17 @@ radio.setGroup(10)
 radio.onReceivedNumber(function on_recieved_number(receivedNumber: number) {
     if (receivedNumber == 0) {
         basic.showIcon(IconNames.Happy)
-        sphero.setRawMotors(sphero.RawMotorModes.forward, 100, sphero.RawMotorModes.forward, 100)
+        sphero.setRawMotors(sphero.RawMotorModes.forward, 100, sphero.RawMotorModes.backward, 100)
     }
     
     if (receivedNumber == 1) {
         basic.showIcon(IconNames.Sad)
-        sphero.setRawMotors(sphero.RawMotorModes.backward, 100, sphero.RawMotorModes.backward, 100)
+        sphero.setRawMotors(sphero.RawMotorModes.backward, 100, sphero.RawMotorModes.forward, 100)
     }
     
     if (receivedNumber == 2) {
         basic.showIcon(IconNames.Asleep)
-        sphero.setRawMotors(sphero.RawMotorModes.off, 0, sphero.RawMotorModes.off, 0)
+        sphero.setRawMotors(sphero.RawMotorModes.forward, 100, sphero.RawMotorModes.forward, 100)
     }
     
 })

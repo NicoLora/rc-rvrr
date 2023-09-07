@@ -4,13 +4,13 @@ radio.set_group(10)
 def on_recieved_number(receivedNumber):
     if receivedNumber == 0:
         basic.show_icon(IconNames.HAPPY)
-        sphero.set_raw_motors(sphero.RawMotorModes.FORWARD, 100, sphero.RawMotorModes.FORWARD, 100)
+        sphero.set_raw_motors(sphero.RawMotorModes.FORWARD, 100, sphero.RawMotorModes.BACKWARD, 100)
     if receivedNumber == 1:
         basic.show_icon(IconNames.SAD)
-        sphero.set_raw_motors(sphero.RawMotorModes.BACKWARD, 100, sphero.RawMotorModes.BACKWARD, 100)
+        sphero.set_raw_motors(sphero.RawMotorModes.BACKWARD, 100, sphero.RawMotorModes.FORWARD, 100)
     if receivedNumber == 2:
         basic.show_icon(IconNames.ASLEEP)
-        sphero.set_raw_motors(sphero.RawMotorModes.OFF, 0, sphero.RawMotorModes.OFF, 0)
+        sphero.set_raw_motors(sphero.RawMotorModes.FORWARD, 100, sphero.RawMotorModes.FORWARD, 100)
 
 radio.on_received_number(on_recieved_number)
 
