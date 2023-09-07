@@ -34,6 +34,12 @@ input.onButtonPressed(Button.B, function on_button_pressed_b() {
 input.onButtonPressed(Button.AB, function on_button_pressed_ab() {
     radio.sendNumber(2)
 })
+input.onGesture(Gesture.Shake, function on_gesture_shake() {
+    if (input.onGesture == 1000) {
+        radio.sendNumber(3)
+    }
+    
+})
 basic.forever(function on_forever() {
     if (input.lightLevel() == 0) {
         sphero.setRgbLedByIndex(sphero.LEDs.rightHeadlight, 255, 255, 255)

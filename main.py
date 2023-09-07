@@ -39,8 +39,8 @@ input.on_button_pressed(Button.AB, on_button_pressed_ab)
 
 
 def on_gesture_shake():
-    if input.on_gesture == 1000 
-    radio.send_number(3)
+    if input.on_gesture() == 1000:
+        radio.send_number(3)
 input.on_gesture(Gesture.SHAKE, on_gesture_shake)
 
     
