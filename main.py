@@ -43,11 +43,6 @@ def on_logo_pressed():
 input.on_logo_pressed(TouchButtonEvent.PRESSED, on_logo_pressed)
 
 
-# def on_gesture_shake():
-#     if shake:
-#         radio.send_number(4)
-# input.on_gesture(Gesture.SHAKE, on_gesture_shake)
-
     
 
 
