@@ -2,42 +2,37 @@
 radio.setGroup(10)
 radio.onReceivedNumber(function on_recieved_number(receivedNumber: number) {
     if (receivedNumber == 0) {
-        basic.showIcon(IconNames.Happy)
-        sphero.setRawMotors(sphero.RawMotorModes.forward, 100, sphero.RawMotorModes.backward, 100)
+        basic.showArrow(ArrowNames.East)
+        sphero.setRawMotors(sphero.RawMotorModes.backward, 50, sphero.RawMotorModes.forward, 50)
     }
     
     if (receivedNumber == 1) {
-        basic.showIcon(IconNames.Sad)
-        sphero.setRawMotors(sphero.RawMotorModes.backward, 100, sphero.RawMotorModes.forward, 100)
+        basic.showArrow(ArrowNames.West)
+        sphero.setRawMotors(sphero.RawMotorModes.forward, 50, sphero.RawMotorModes.backward, 50)
     }
     
     if (receivedNumber == 2) {
-        basic.showIcon(IconNames.Asleep)
+        basic.showArrow(ArrowNames.North)
         sphero.setRawMotors(sphero.RawMotorModes.forward, 100, sphero.RawMotorModes.forward, 100)
     }
     
     if (receivedNumber == 3) {
-        basic.showIcon(IconNames.Giraffe)
-        sphero.wake()
+        basic.showArrow(ArrowNames.South)
+        sphero.setRawMotors(sphero.RawMotorModes.backward, 50, sphero.RawMotorModes.backward, 50)
     }
     
 })
-//     sphero.set_raw_motors(sphero.RawMotorModes.FORWARD, 100, sphero.RawMotorModes.FORWARD, 100)
 input.onButtonPressed(Button.A, function on_button_pressed_a() {
     radio.sendNumber(0)
 })
-//     sphero.set_raw_motors(sphero.RawMotorModes.BACKWARD, 100, sphero.RawMotorModes.BACKWARD, 100)
 input.onButtonPressed(Button.B, function on_button_pressed_b() {
     radio.sendNumber(1)
 })
-//     sphero.set_raw_motors(sphero.RawMotorModes.OFF, 0, sphero.RawMotorModes.OFF, 0)
 input.onButtonPressed(Button.AB, function on_button_pressed_ab() {
     radio.sendNumber(2)
 })
-input.onGesture(Gesture.Shake, function on_gesture_shake() {
-    if (input.onGesture == 1000) {
-        radio.sendNumber(3)
-    }
+input.onLogoEvent(TouchButtonEvent.Pressed, function on_logo_pressed() {
+    radio.sendNumber(3)
     
 })
 basic.forever(function on_forever() {
