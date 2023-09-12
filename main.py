@@ -14,8 +14,10 @@ def on_recieved_number(receivedNumber):
         basic.show_icon(IconNames.ASLEEP)
         sphero.set_raw_motors(sphero.RawMotorModes.FORWARD, 100, sphero.RawMotorModes.FORWARD, 100)
     if receivedNumber == 3:
-        basic.show_icon(IconNames.GIRAFFE)
-        sphero.wake()
+        sphero.set_raw_motors(sphero.RawMotorModes.BACKWARD, 100 sphero.RawMotorModes.BACKWARD, 100)
+    # if receivedNumber == 4:
+    #     basic.show_icon(IconNames.GIRAFFE)
+    #     sphero.wake()
 
 radio.on_received_number(on_recieved_number)
 
@@ -36,12 +38,10 @@ def on_button_pressed_ab():
 #    sphero.set_raw_motors(sphero.RawMotorModes.OFF, 0, sphero.RawMotorModes.OFF, 0)
 input.on_button_pressed(Button.AB, on_button_pressed_ab)
 
+def on_logo_pressed():
+    radio.send_number(3)
+input.on_logo_pressed(TouchButtonEvent.PRESSED, on_logo_pressed)
 
-
-def on_gesture_shake():
-    if input.on_gesture() == 1000:
-        radio.send_number(3)
-input.on_gesture(Gesture.SHAKE, on_gesture_shake)
 
     
 
